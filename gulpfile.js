@@ -10,42 +10,63 @@ const cleanCSS = require('gulp-clean-css');
 const postcss = require('gulp-postcss');
 const assets  = require('postcss-assets');
 
+
+const themeName = 'hai';
+const output = './app/public/wp-content/themes/';
+const outputDir = output + themeName + '/assets/';
+const srcDir = './src/';
+
+const config = {
+    localURL: themeName + '.local',
+    srcSCSS: srcDir + 'scss/main.scss',
+    jsOutput: outputDir + 'js/',
+    cssOutput: outputDir + 'css/',
+    bootstrapPathJS: 'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
+    jarallaxPath: 'node_modules/jarallax/dist/jarallax.js',
+    granimPath: 'node_modules/granim/dist/granim.js'
+};
+
+// Output JS
 gulp.task('scripts', function() {
-  return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.bundle.js','node_modules/jarallax/dist/jarallax.js','node_modules/granim/dist/granim.js'])
+  return gulp.src([config.bootstrapPathJS, config.jarallaxPath, config.granimPath])
     .pipe(concat('scripts.js'))
-    .pipe(gulp.dest('./app/public/wp-content/themes/hai/assets/js/'))
+    .pipe(gulp.dest( config.jsOutput ))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
-    .pipe(gulp.dest('./app/public/wp-content/themes/hai/assets/js/'))
+    .pipe(gulp.dest( config.jsOutput ))
     .pipe(notify({ message: 'Scripts task complete' }));
 });
 
+// Compile CSS
 gulp.task('compile-styles', function() {
-  return gulp.src('./src/scss/main.scss')
+  return gulp.src( config.srcSCSS )
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(autoprefixer('last 2 versions'))
-    .pipe(gulp.dest('./app/public/wp-content/themes/hai/assets/css/'))
+    .pipe(gulp.dest( config.cssOutput ))
     .pipe(rename({suffix: '.min'}))
     .pipe(cleanCSS('level: 2'))
-    .pipe(gulp.dest('./app/public/wp-content/themes/hai/assets/css/'))
+    .pipe(gulp.dest( config.cssOutput ))
     .pipe(browserSync.stream())
     .pipe(notify({ message: 'Styles task complete' }));
 });
 
+// Process inline SVG
 gulp.task('process-styles', function () {
-  return gulp.src(['./app/public/wp-content/themes/hai/assets/css/main.css','./app/public/wp-content/themes/hai/assets/css/main.min.css'])
+  return gulp.src([ config.cssOutput + 'main.css', config.cssOutput + 'main.min.css'])
     .pipe(postcss([assets({
-      loadPaths: ['node_modules/bootstrap-icons/','./app/public/wp-content/themes/hai/assets/images/']
+      loadPaths: ['node_modules/bootstrap-icons/', config.outputDir + 'images/']
     })]))
     .pipe(gulp.dest('.'));
 });
 
+// Output CSS
 gulp.task('styles', gulp.series('compile-styles', 'process-styles'));
 
+// Serve
 gulp.task('serve', function() {
 
   browserSync.init({
-      proxy: "sentientmotion.local"
+      proxy: config.localURL
   });
 
   gulp.watch(['./src/scss/**/*.scss', '!./node_modules/', '!./.git/'], gulp.series('compile-styles', 'process-styles'));
@@ -54,6 +75,7 @@ gulp.task('serve', function() {
   
 });
 
+// Watcher
 gulp.task('watch', function() {
   gulp.watch(['./**/*.scss', '!./node_modules/', '!./.git/'], gulp.series('compile-styles', 'process-styles'));
 });
