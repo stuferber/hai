@@ -21,15 +21,36 @@ const config = {
     srcSCSS: srcDir + 'scss/main.scss',
     jsOutput: outputDir + 'js/',
     cssOutput: outputDir + 'css/',
-    bootstrapPathJS: 'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
+    jqueryPathJS: 'node_modules/jquery/dist/jquery.js',
+    swiperPathJS: 'node_modules/swiper/swiper-bundle.js',
     jarallaxPath: 'node_modules/jarallax/dist/jarallax.js',
     granimPath: 'node_modules/granim/dist/granim.js'
 };
 
+
+// On Error: show notification
+onError = function (err) {
+
+  // Show notification
+  notify.onError({
+    title: "GULP ERROR",
+    message: "Error: <%= error.message %>",
+    sound: "Frog" // Basso, Blow, Bottle, Frog, Funk, Glass, Hero, Morse, Ping, Pop, Purr, Sosumi, Submarine, Tink. If sound is simply true, Bottle
+  })(err);
+
+  // Continue pipe stream
+  this.emit('end');
+};
+
 // Output JS
 gulp.task('scripts', function() {
-  return gulp.src([config.bootstrapPathJS, config.jarallaxPath, config.granimPath])
-    .pipe(concat('scripts.js'))
+  return gulp.src([
+    config.jqueryPathJS, 
+    config.jarallaxPath, 
+    config.granimPath, 
+    config.swiperPathJS 
+  ])
+    .pipe(concat('main.js'))
     .pipe(gulp.dest( config.jsOutput ))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
@@ -46,17 +67,17 @@ gulp.task('compile-styles', function() {
     .pipe(rename({suffix: '.min'}))
     .pipe(cleanCSS('level: 2'))
     .pipe(gulp.dest( config.cssOutput ))
-    .pipe(browserSync.stream())
-    .pipe(notify({ message: 'Styles task complete' }));
+    .pipe(browserSync.stream());
 });
 
 // Process inline SVG
 gulp.task('process-styles', function () {
   return gulp.src([ config.cssOutput + 'main.css', config.cssOutput + 'main.min.css'])
     .pipe(postcss([assets({
-      loadPaths: ['node_modules/bootstrap-icons/', config.outputDir + 'images/']
+      loadPaths: [ config.outputDir + 'images/']
     })]))
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('.'))
+    .pipe(notify({ message: 'Styles task complete' }));
 });
 
 // Output CSS
@@ -77,5 +98,5 @@ gulp.task('serve', function() {
 
 // Watcher
 gulp.task('watch', function() {
-  gulp.watch(['./**/*.scss', '!./node_modules/', '!./.git/'], gulp.series('compile-styles', 'process-styles'));
+  gulp.watch(['./**/*.scss', '!./node_modules/', '!./.git/'], gulp.series('compile-styles', 'process-styles' ));
 });

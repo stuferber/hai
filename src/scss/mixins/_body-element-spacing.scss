@@ -1,0 +1,9 @@
+@use '../settings';
+
+// Default element styling
+@mixin body-element-spacing {
+  margin: settings.$body-element-spacing 0 0 0;
+  &:first-child {
+    margin-top: 0;
+  }
+}

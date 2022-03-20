@@ -1,0 +1,45 @@
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all ease-in .2s;
+  .primary-menu {
+    a {
+      text-transform: lowercase;
+    }
+  }
+  .site-logo img {
+    max-height: 40px;
+  }
+  
+  // Sticky header
+  .scroll-up & {
+    transform: none;
+  }
+  .scroll-down & {
+    transform: translate3d(0, -150%, 0);
+  }
+
+  #site-header-canvas {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  .site-description {
+    display: none;
+  }
+  .toggle-wrapper::before,
+  .toggle-text {
+    display: none;
+  }
+}
+
+.menu-modal.active {
+  z-index: 999999;
+}
