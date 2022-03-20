@@ -34,12 +34,6 @@
 						}
 						?>
 
-						<p class="powered-by-wordpress">
-							<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'hai' ) ); ?>">
-								<?php _e( 'Powered by WordPress', 'hai' ); ?>
-							</a>
-						</p><!-- .powered-by-wordpress -->
-
 					</div><!-- .footer-credits -->
 
 					<a class="to-the-top" href="#site-header">

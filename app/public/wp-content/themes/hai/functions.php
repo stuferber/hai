@@ -218,7 +218,9 @@ function hai_register_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'hai-js', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false );
+	wp_enqueue_script( 'theme', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false );	
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.min.js', array(), $theme_version, false );
+	wp_enqueue_script( 'init', get_template_directory_uri() . '/assets/js/init.js', array(), $theme_version, false );
 	wp_script_add_data( 'hai-js', 'async', true );
 
 }

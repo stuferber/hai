@@ -1,0 +1,27 @@
+@use '../settings';
+@use 'media-queries';
+
+@mixin site-center {
+  box-sizing: border-box;
+  max-width: settings.$site-center;
+  margin: 0 auto;
+}
+
+@mixin site-padding-left {
+  padding-left: settings.$page-side-spacing;
+  @include media-queries.mqmin(settings.$bp-md) {
+    padding-left: settings.$page-side-spacing__md;
+  }
+}
+
+@mixin site-padding-right {
+  padding-right: settings.$page-side-spacing;
+  @include media-queries.mqmin(settings.$bp-md) {
+    padding-right: settings.$page-side-spacing__md;
+  }
+}
+
+@mixin site-side-spacing {
+  @include site-padding-left;
+  @include site-padding-right;
+}

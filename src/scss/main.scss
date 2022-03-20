@@ -3,8 +3,23 @@
 // ---------
 
 
-// // Concise Settings
-// @import "settings.scss";
+@use "settings"; 
+@use "debug"; 
 
-// Concise Core
-@import "../../node_modules/bootstrap/scss/bootstrap.scss"; 
+//** External **/
+@use "../../node_modules/swiper/swiper-bundle.css";       // Swiper styles
+@use "../../app/public/wp-content/themes/hai/style";      // Twentytwenty styles
+@use "./external/jarallax";                           // Jarallax styles
+
+//** Custom Atomic **/
+
+// Atoms
+@use "./atoms/base";  
+@use "./atoms/ratio";  
+
+// Molecules
+// Organisms
+@use "./organisms/site-header";  
+
+// Organisms
+@use "./templates/home";  

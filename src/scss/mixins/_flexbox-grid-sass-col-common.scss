@@ -1,0 +1,8 @@
+@mixin flexbox-grid-sass-col-common {
+  box-sizing: border-box;
+  // split flex: 0 0 auto into individual props
+  flex-grow: 0;
+  flex-shrink: 0;
+  // we leave flex-basis: auto out of common because in some spots we need it and some we dont
+  // more why here: https://github.com/kristoferjoseph/flexboxgrid/issues/126
+}

@@ -31,7 +31,8 @@
 		?>
 
 		<header id="site-header" class="header-footer-group">
-
+			<canvas id="site-header-canvas"></canvas>
+			
 			<div class="header-inner section-inner">
 
 				<div class="header-titles-wrapper">
