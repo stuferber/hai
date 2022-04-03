@@ -13,14 +13,18 @@ get_header();
 
 <main id="site-content">
 
-
-
-	<!-- Slider main container -->
-	<div class="swiper" data-swiper>
-		<!-- Additional required wrapper -->
+	<section class="swiper intro-slider" data-swiper>
 		<div class="swiper-wrapper">
 			<!-- Slides -->
 			<div class="swiper-slide">
+				<div class="overlay">	
+					<div class="content">
+						<h2>
+							Intro heading
+						</h2>
+						<p>Ipsum lorem..</p>
+					</div>
+				</div>
 				<figure class="img img--cover img--2x3">
 					<picture>
 						<img src="<?= get_template_directory_uri()?>/assets/images/swiper-slide-1.jpg" alt=""> 
@@ -28,6 +32,14 @@ get_header();
 				</figure>
 			</div>
 			<div class="swiper-slide">
+				<div class="overlay">	
+					<div class="content">
+						<h2>
+							Intro heading
+						</h2>
+						<p>Ipsum lorem..</p>
+					</div>
+				</div>
 				<figure class="img img--cover img--2x3">
 					<picture>
 						<img src="<?= get_template_directory_uri()?>/assets/images/swiper-slide-2.jpg" alt=""> 
@@ -35,6 +47,14 @@ get_header();
 				</figure>
 			</div>
 			<div class="swiper-slide">
+				<div class="overlay">	
+					<div class="content">
+						<h2>
+							Intro heading
+						</h2>
+						<p>Ipsum lorem..</p>
+					</div>
+				</div>
 				<figure class="img img--cover img--2x3">
 					<picture>
 						<img src="<?= get_template_directory_uri()?>/assets/images/swiper-slide-3.jpg" alt=""> 
@@ -42,37 +62,95 @@ get_header();
 				</figure>
 			</div>
 		</div>
-		<!-- If we need pagination -->
 		<div class="swiper-pagination"></div>
+		<div class="swiper-scrollbar"></div>
 
 		<!-- If we need navigation buttons
 		<div class="swiper-button-prev">Previous</div>
 		<div class="swiper-button-next">Next</div> -->
+	</section>
 
-		<!-- If we need scrollbar -->
+	
+
+	<section class="swiper intro-slider" data-swiper>
+		<div class="swiper-wrapper">
+			<!-- Slides -->
+			<div class="swiper-slide">
+				<div class="overlay">	
+					<div class="content">
+						<h2>
+							Intro heading
+						</h2>
+						<p>Ipsum lorem..</p>
+					</div>
+				</div>
+				<figure class="img img--cover img--2x3">
+					<picture>
+						<img src="<?= get_template_directory_uri()?>/assets/images/swiper-slide-1.jpg" alt=""> 
+					</picture>
+				</figure>
+			</div>
+			<div class="swiper-slide">
+				<div class="overlay">	
+					<div class="content">
+						<h2>
+							Intro heading
+						</h2>
+						<p>Ipsum lorem..</p>
+					</div>
+				</div>
+				<figure class="img img--cover img--2x3">
+					<picture>
+						<img src="<?= get_template_directory_uri()?>/assets/images/swiper-slide-2.jpg" alt=""> 
+					</picture>
+				</figure>
+			</div>
+			<div class="swiper-slide">
+				<div class="overlay">	
+					<div class="content">
+						<h2>
+							Intro heading
+						</h2>
+						<p>Ipsum lorem..</p>
+					</div>
+				</div>
+				<figure class="img img--cover img--2x3">
+					<picture>
+						<img src="<?= get_template_directory_uri()?>/assets/images/swiper-slide-3.jpg" alt=""> 
+					</picture>
+				</figure>
+			</div>
+		</div>
+		<div class="swiper-pagination"></div>
 		<div class="swiper-scrollbar"></div>
-	</div>
+
+		<!-- If we need navigation buttons
+		<div class="swiper-button-prev">Previous</div>
+		<div class="swiper-button-next">Next</div> -->
+	</section>
 
 	<!-- Background Image Parallax with <picture> tag -->
-	<div data-jarallax>
+	<section data-jarallax>
+		<h1>Your content here...</h1>
 		<picture class="jarallax-img">
 			<source media="(min-width: 800px)" srcset="<?= get_template_directory_uri()?>/assets/images/swiper-slide-1.jpg">
 			<source media="(min-width: 300px)" srcset="<?= get_template_directory_uri()?>/assets/images/swiper-slide-2.jpg">
 			<img src="<?= get_template_directory_uri()?>/assets/images/swiper-slide-3.jpg" alt="">
 		</picture>
-		Your content here...
-	</div>
+	</section>
 
 	<!-- Alternate: Background Image Parallax -->
-	<div data-jarallax style="background-image: url('<?= get_template_directory_uri()?>/assets/images/swiper-slide-3.jpg');">
-		Your content here...
-	</div>	
+	<section data-jarallax style="background-image: url('<?= get_template_directory_uri()?>/assets/images/swiper-slide-3.jpg');">
+		
+		<h1>Your content here...</h1>
+	</section>	
 
 	<!-- Background Image Parallax (Jarallax) -->
-	<div data-jarallax>
+	<section data-jarallax>
 			<img class="jarallax-img" src="<?= get_template_directory_uri()?>/assets/images/swiper-slide-3.jpg" alt="">
-			Your content here...
-	</div>
+			
+			<h1>Feta halloumi ricotta. Cream cheese hard cheese cheeseburger edam fromage parmesan cheese slices pecorino..</h1>
+	</section>
 
 </main><!-- #site-content -->
 
