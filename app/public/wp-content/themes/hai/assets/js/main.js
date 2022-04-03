@@ -10881,7 +10881,7 @@ return jQuery;
 } );
 
 /*!
- * Jarallax v2.0.2 (https://github.com/nk-o/jarallax)
+ * Jarallax v2.0.3 (https://github.com/nk-o/jarallax)
  * Copyright 2022 nK <https://nkdev.info>
  * Licensed under MIT (https://github.com/nk-o/jarallax/blob/master/LICENSE)
  */

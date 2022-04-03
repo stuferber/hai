@@ -1,0 +1,23 @@
+.intro-slider {
+  .swiper-slide {
+    position: relative;
+  }
+  .overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .content {
+    background-color: rgba(0,0,0,.4);
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+}

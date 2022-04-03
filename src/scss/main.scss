@@ -7,6 +7,7 @@
 @use "debug"; 
 
 //** External **/
+@use "../../node_modules/normalize-scss/sass/normalize";       // Swiper styles
 @use "../../node_modules/swiper/swiper-bundle.css";       // Swiper styles
 @use "../../app/public/wp-content/themes/hai/style";      // Twentytwenty styles
 @use "./external/jarallax";                           // Jarallax styles
@@ -14,10 +15,13 @@
 //** Custom Atomic **/
 
 // Atoms
-@use "./atoms/base";  
+@use "./atoms/base"; 
+@use "./atoms/typhography";  
 @use "./atoms/ratio";  
 
 // Molecules
+@use "./molecules/slider";  
+
 // Organisms
 @use "./organisms/site-header";  
 

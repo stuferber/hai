@@ -15,6 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.3",
+    "granim": "^2.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
@@ -24,10 +25,10 @@
     "gulp-postcss": "9.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
-    "postcss-assets": "^6.0.0",
-    "granim": "^2.0.0",
     "jarallax": "^2.0.2",
     "jquery": "^3.6.0",
+    "postcss-assets": "^6.0.0",
+    "normalize-scss": "^7.0.1",
     "swiper": "^8.0.7"
   },
   "description": "",
@@ -37,5 +38,7 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "dependencies": {
+  }
 }
